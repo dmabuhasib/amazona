@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import Navbar from 'react-bootstrap/Navbar';
@@ -28,7 +28,7 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className='text-center'>All Right Reserved</div>
+          <div className="text-center">All Right Reserved</div>
         </footer>
       </div>
     </BrowserRouter>
