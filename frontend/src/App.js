@@ -12,7 +12,7 @@ function App() {
       <div className="d-flex flex-column site-container">
         <header>
           <Navbar bg="dark" variant="dark">
-            <Container>
+            <Container>            
               <LinkContainer to="/">
                 <Navbar.Brand>amazone</Navbar.Brand>
               </LinkContainer>
@@ -20,7 +20,7 @@ function App() {
           </Navbar>
         </header>
         <main>
-          <Container>
+          <Container className="mt-3">
             <Routes>
               <Route path="/" element={<HomeScreen />} />
               <Route path="/product/:slug" element={<ProductScreen />} />

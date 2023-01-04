@@ -36,3 +36,6 @@ main {
   background-color: #f0c040;
   color: black;
 }
+.img-large{
+  max-width: 100%;
+}
