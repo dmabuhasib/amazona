@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Badge, Button, Card, Col, ListGroup, Row } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
@@ -22,7 +22,7 @@ const reducer = (state, action) => {
   }
 };
 const ProductScreen = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
@@ -45,19 +45,19 @@ const ProductScreen = () => {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
-  const addToCartHandler =  async () => {
+  const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const {data} = await axios.get(`/api/products/${product._id}`);
-    if(data.countInStock < quantity) {
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    if (data.countInStock < quantity) {
       window.alert('Sorry, Product is out of stock');
-      return
+      return;
     }
     ctxDispatch({
-      type: 'CARD_ADD_ITEM',
+      type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },
     });
-    navigate('/cart')
+    navigate('/cart');
   };
   return loading ? (
     <LoadingBox />
@@ -87,7 +87,7 @@ const ProductScreen = () => {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Price : {product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
             <ListGroup.Item>Description : {product.description}</ListGroup.Item>
           </ListGroup>
         </Col>
@@ -98,7 +98,7 @@ const ProductScreen = () => {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col>{product.price}</Col>
+                    <Col> ${product.price}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
