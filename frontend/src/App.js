@@ -95,7 +95,7 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">All Right Reserved</div>
+          <div className="text-center">All Right Reserved by Dm Abu Hasib</div>
         </footer>
       </div>
     </BrowserRouter>
