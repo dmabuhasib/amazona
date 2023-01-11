@@ -12,7 +12,6 @@ import {
   Nav,
   Navbar,
   NavDropdown,
-  NavItem,
 } from 'react-bootstrap';
 import { Store } from './Store';
 import CartScreen from './screens/CartScreen';
@@ -27,6 +26,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import SearchBox from './components/SearchBox';
 import getError from './utils';
 import axios from 'axios';
+import SearchScreen from './screens/SearchScreen.js';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -144,6 +144,7 @@ function App() {
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/payment" element={<PaymentMethodScreen />} />
+              <Route path="/search" element={<SearchScreen />} />
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route path="/product/:slug" element={<ProductScreen />} />
