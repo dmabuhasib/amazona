@@ -16,6 +16,7 @@ import PaymentMethodScreen from './screens/PaymentMethodScreen.js';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrederScreen from './screens/OrederScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -26,6 +27,7 @@ function App() {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
+    window.location.href = '/signin';
   };
   return (
     <BrowserRouter>
@@ -87,6 +89,7 @@ function App() {
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/order/:id" element={<OrederScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/orderhistory" element={<OrderHistoryScreen />} />
             </Routes>
           </Container>
